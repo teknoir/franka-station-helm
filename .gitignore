@@ -1,0 +1,25 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Helm
+# Ignore charts/ directory as it's populated by helm dependency update
+charts/*/charts/
+# Ignore packaged charts
+*.tgz
+# Chart.lock can be committed or ignored depending on preference, 
+# but often it's ignored if dependencies are dynamic.
+# Chart.lock
+
+# Generated files
+*-rendered.yaml
+*.rendered.yaml
+
+# Junie
+.junie/

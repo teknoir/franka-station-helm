@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pcf
+  labels:
+    app: pcf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pcf
+  template:
+    metadata:
+      labels:
+        app: pcf
+    spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      nodeSelector: {{ toYaml .Values.nodeSelector | nindent 8 }}
+      imagePullSecrets:
+        - name: persona-harbor-pullsecret
+      containers:
+        - name: ros
+          image: {{ .Values.image | quote }}
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/bash
+            - -ic
+          args:
+            - |
+              ~/ws_colcon/src/manipulation/locomotion/pcf/target/release/robot /etc/persona/hardware.yaml
+          securityContext:
+            capabilities:
+              add:
+                - SYS_NICE
+                - IPC_LOCK
+          env:
+            - name: ROS_DOMAIN_ID
+              value: "4404"
+            - name: ROS_LOCALHOST_ONLY
+              value: "0"
+            - name: RMW_IMPLEMENTATION
+              value: "rmw_zenoh_cpp"
+            - name: ZENOH_CONFIG_OVERRIDE
+              value: "connect/endpoints=[\"tcp/ros-zenoh-router:7447\"]"
+            - name: ZENOH_ROUTER_CHECK_ATTEMPTS
+              value: "0"
+          resources: {}
+          volumeMounts:
+            - mountPath: /etc/persona
+              name: pcf-hardware-config
+            - mountPath: /home/persona/ws_colcon/src/manipulation
+              name: manipulation-src
+      volumes:
+        - name: pcf-hardware-config
+          configMap:
+            name: pcf-hardware-config
+        - hostPath:
+            path: /home/persona/persona
+            type: DirectoryOrCreate
+          name: manipulation-src
