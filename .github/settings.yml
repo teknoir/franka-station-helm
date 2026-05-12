@@ -3,16 +3,16 @@
 # See https://developer.github.com/v3/repos/#edit for all available settings.
 repository:
   # The name of the repository. Changing this will rename the repository
-  name: profile-plugins-helm
+  name: franka-station-helm
 
   # A short description of the repository that will show up on GitHub
-  description: Teknoir Platform Profile Controller Plugins Helm Charts
+  description: This repository contains a collection of Helm charts for deploying the ROS 2 stack and associated components for Franka robot stations.
 
   # A URL with more information about the repository
   homepage: https://teknoir.ai
 
   # A comma-separated list of topics to set on the repository
-  topics: profile, teknoir, helm
+  topics: persona, teknoir, helm, franka, robot
 
   # Either `true` to make the repository private, or `false` to make it public.
   private: false

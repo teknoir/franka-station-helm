@@ -11,3 +11,16 @@ keywords:
   - manipulation
 maintainers:
   - name: persona
+dependencies:
+  - name: franka-cameras
+    version: 0.1.0
+    repository: "file://../franka-cameras"
+  - name: franka-pcf
+    version: 0.1.0
+    repository: "file://../franka-pcf"
+  - name: franka-ros
+    version: 0.1.0
+    repository: "file://../franka-ros"
+  - name: franka-zenoh-router
+    version: 0.1.0
+    repository: "file://../franka-zenoh-router"

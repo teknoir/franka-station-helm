@@ -2,12 +2,13 @@
 # Kept minimal for GitOps — most configuration lives directly in templates.
 # Override here only for environment-specific differences.
 
-# Node where ROS talker/listener pods run
-nodeSelector:
-  kubernetes.io/hostname: teknoir-master
+global:
+  # Node where ROS talker/listener pods run
+  nodeSelector:
+    kubernetes.io/hostname: teknoir-master
 
-# ROS manipulation image
-image: "persona-nas1.chipmunk-tuna.ts.net/persona/manipulation:jazzy-py3.12-dev-ubuntu24.04"
+  # ROS manipulation image
+  image: "persona-nas1.chipmunk-tuna.ts.net/persona/manipulation:jazzy-py3.12-dev-ubuntu24.04"
 
-# Robot name
-robot: castor
+  # Robot name
+  robot: castor
