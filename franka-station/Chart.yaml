@@ -1,0 +1,13 @@
+apiVersion: v2
+name: franka-station
+description: Helm chart for the Franka station ROS 2 stack with Zenoh router
+type: application
+version: 0.1.0
+appVersion: "jazzy-py3.12-dev-ubuntu24.04"
+keywords:
+  - ros2
+  - franka
+  - zenoh
+  - manipulation
+maintainers:
+  - name: persona

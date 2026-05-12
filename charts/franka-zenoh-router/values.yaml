@@ -1,0 +1,2 @@
+nodeSelector: {}
+image: "ghcr.io/teknoir/ros-helm/zenoh-router:latest"

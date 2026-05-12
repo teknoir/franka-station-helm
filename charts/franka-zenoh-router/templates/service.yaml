@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ros-zenoh-router
+  labels:
+    app: ros-zenoh-router
+spec:
+  type: ClusterIP
+  selector:
+    app: ros-zenoh-router
+  ports:
+    - name: tcp-zenoh
+      port: 7447
+      targetPort: tcp-zenoh
+      protocol: TCP
+    - name: tcp-scout
+      port: 7446
+      targetPort: tcp-scout
+      protocol: TCP
+    - name: ws-zenoh
+      port: 10000
+      targetPort: ws-zenoh
+      protocol: TCP
+    - name: rest-api
+      port: 8000
+      targetPort: rest-api
+      protocol: TCP

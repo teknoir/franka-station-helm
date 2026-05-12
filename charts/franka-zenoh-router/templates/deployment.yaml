@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ros-zenoh-router
+  labels:
+    app: ros-zenoh-router
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ros-zenoh-router
+  template:
+    metadata:
+      labels:
+        app: ros-zenoh-router
+    spec:
+      nodeSelector: {{ toYaml ( .Values.global.nodeSelector | default .Values.nodeSelector ) | nindent 8 }}
+      containers:
+        - name: zenoh-router
+          image: {{ .Values.image | quote }}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: tcp-zenoh
+              containerPort: 7447
+              protocol: TCP
+            - name: tcp-scout
+              containerPort: 7446
+              protocol: TCP
+            - name: ws-zenoh
+              containerPort: 10000
+              protocol: TCP
+            - name: rest-api
+              containerPort: 8000
+              protocol: TCP
+          args: ["-c", "/config/router.json5"]
+          volumeMounts:
+            - name: zenoh-config
+              mountPath: /config
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: false
+            capabilities:
+              drop: ["ALL"]
+          resources: {}
+      volumes:
+        - name: zenoh-config
+          configMap:
+            name: ros-zenoh-config

@@ -1,0 +1,3 @@
+nodeSelector: {}
+image: "persona-nas1.chipmunk-tuna.ts.net/persona/manipulation:jazzy-py3.12-dev-ubuntu24.04"
+robot: castor

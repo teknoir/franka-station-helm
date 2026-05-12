@@ -1,0 +1,6 @@
+apiVersion: v2
+name: franka-pcf
+description: Helm chart for Franka station PCF (Persona Control Framework)
+type: application
+version: 0.1.0
+appVersion: "jazzy-py3.12-dev-ubuntu24.04"
