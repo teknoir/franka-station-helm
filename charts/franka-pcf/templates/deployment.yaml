@@ -16,12 +16,12 @@ spec:
     spec:
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
-      nodeSelector: {{ toYaml ( .Values.global.nodeSelector | default .Values.nodeSelector ) | nindent 8 }}
+      nodeSelector: {{ toYaml ( ( .Values.global | default dict ).nodeSelector | default .Values.nodeSelector ) | nindent 8 }}
       imagePullSecrets:
         - name: persona-harbor-pullsecret
       containers:
         - name: ros
-          image: {{ .Values.global.image | default .Values.image | quote }}
+          image: {{ ( .Values.global | default dict ).image | default .Values.image | quote }}
           imagePullPolicy: IfNotPresent
           command:
             - /bin/bash

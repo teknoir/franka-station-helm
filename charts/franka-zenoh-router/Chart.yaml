@@ -2,5 +2,5 @@ apiVersion: v2
 name: franka-zenoh-router
 description: Helm chart for Franka station Zenoh router
 type: application
-version: 0.1.1
+version: 0.1.2
 appVersion: "latest"

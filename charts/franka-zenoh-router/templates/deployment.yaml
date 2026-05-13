@@ -14,7 +14,7 @@ spec:
       labels:
         app: ros-zenoh-router
     spec:
-      nodeSelector: {{ toYaml ( .Values.global.nodeSelector | default .Values.nodeSelector ) | nindent 8 }}
+      nodeSelector: {{ toYaml ( ( .Values.global | default dict ).nodeSelector | default .Values.nodeSelector ) | nindent 8 }}
       containers:
         - name: zenoh-router
           image: {{ .Values.image | quote }}
