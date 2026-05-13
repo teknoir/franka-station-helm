@@ -3,6 +3,16 @@ entries:
   franka-cameras:
   - apiVersion: v2
     appVersion: jazzy-py3.12-dev-ubuntu24.04
+    created: "2026-05-13T14:02:20.544786242Z"
+    description: Helm chart for Franka station cameras
+    digest: 6a8b2cf1662797603c2a354646fe4cfd1b53d5cb577014ecee445dc0898866c8
+    name: franka-cameras
+    type: application
+    urls:
+    - https://github.com/teknoir/franka-station-helm/releases/download/franka-cameras-0.1.2/franka-cameras-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: jazzy-py3.12-dev-ubuntu24.04
     created: "2026-05-13T13:02:32.259291199Z"
     description: Helm chart for Franka station cameras
     digest: 8080c0b57fceb1a38ecd07e9fca856e50bce6e659bc97f823b6b88c31f204c71
@@ -12,6 +22,16 @@ entries:
     - https://github.com/teknoir/franka-station-helm/releases/download/franka-cameras-0.1.1/franka-cameras-0.1.1.tgz
     version: 0.1.1
   franka-pcf:
+  - apiVersion: v2
+    appVersion: jazzy-py3.12-dev-ubuntu24.04
+    created: "2026-05-13T14:02:20.764067989Z"
+    description: Helm chart for Franka station PCF (Persona Control Framework)
+    digest: d1dc329bf42f07eb4bb856c9db9deeffeffba25377cb9320db4a528e982a4834
+    name: franka-pcf
+    type: application
+    urls:
+    - https://github.com/teknoir/franka-station-helm/releases/download/franka-pcf-0.1.2/franka-pcf-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v2
     appVersion: jazzy-py3.12-dev-ubuntu24.04
     created: "2026-05-13T13:02:32.517782273Z"
@@ -25,6 +45,16 @@ entries:
   franka-ros:
   - apiVersion: v2
     appVersion: jazzy-py3.12-dev-ubuntu24.04
+    created: "2026-05-13T14:02:20.96097725Z"
+    description: Helm chart for Franka station ROS 2 stack
+    digest: fd99192e955e2330f07a5105cf8bc3ae68bd5879e06c07934a5114f84fea47f4
+    name: franka-ros
+    type: application
+    urls:
+    - https://github.com/teknoir/franka-station-helm/releases/download/franka-ros-0.1.2/franka-ros-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: jazzy-py3.12-dev-ubuntu24.04
     created: "2026-05-13T13:02:32.752088376Z"
     description: Helm chart for Franka station ROS 2 stack
     digest: 60bb5fb61c117f26970593c7c0ea9bcb02ed224dfb61419e5d0ff8c267117fc0
@@ -34,6 +64,36 @@ entries:
     - https://github.com/teknoir/franka-station-helm/releases/download/franka-ros-0.1.1/franka-ros-0.1.1.tgz
     version: 0.1.1
   franka-station:
+  - apiVersion: v2
+    appVersion: jazzy-py3.12-dev-ubuntu24.04
+    created: "2026-05-13T14:02:21.169767119Z"
+    dependencies:
+    - name: franka-cameras
+      repository: file://../franka-cameras
+      version: 0.1.2
+    - name: franka-pcf
+      repository: file://../franka-pcf
+      version: 0.1.2
+    - name: franka-ros
+      repository: file://../franka-ros
+      version: 0.1.2
+    - name: franka-zenoh-router
+      repository: file://../franka-zenoh-router
+      version: 0.1.2
+    description: Helm chart for the Franka station ROS 2 stack with Zenoh router
+    digest: 951395e620bc997b1c677437ec7cdce637593bd422cbd71638895d45ea8f8803
+    keywords:
+    - ros2
+    - franka
+    - zenoh
+    - manipulation
+    maintainers:
+    - name: persona
+    name: franka-station
+    type: application
+    urls:
+    - https://github.com/teknoir/franka-station-helm/releases/download/franka-station-0.1.2/franka-station-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v2
     appVersion: jazzy-py3.12-dev-ubuntu24.04
     created: "2026-05-13T13:02:32.974017893Z"
@@ -67,6 +127,16 @@ entries:
   franka-zenoh-router:
   - apiVersion: v2
     appVersion: latest
+    created: "2026-05-13T14:02:21.382065438Z"
+    description: Helm chart for Franka station Zenoh router
+    digest: ec6dc435b04cc09e084fdba1fba37bf585c6c7eab018bee4b8f365771f4ea1bd
+    name: franka-zenoh-router
+    type: application
+    urls:
+    - https://github.com/teknoir/franka-station-helm/releases/download/franka-zenoh-router-0.1.2/franka-zenoh-router-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2026-05-13T13:02:33.222982258Z"
     description: Helm chart for Franka station Zenoh router
     digest: d61371d70516e3e341607d27e4e29d35d4013bf6a6138b76b9d6c67c038ba2f0
@@ -76,6 +146,23 @@ entries:
     - https://github.com/teknoir/franka-station-helm/releases/download/franka-zenoh-router-0.1.1/franka-zenoh-router-0.1.1.tgz
     version: 0.1.1
   teleop-station:
+  - apiVersion: v2
+    appVersion: jazzy-py3.12-dev-ubuntu24.04
+    created: "2026-05-13T14:02:21.579579956Z"
+    description: Helm chart for the Teleop station stack
+    digest: e08e09e3f4d6b16f8e543137c09ae86ac0b6d39ae64bbd13c7e6f92327e43600
+    keywords:
+    - ros2
+    - franka
+    - zenoh
+    - manipulation
+    maintainers:
+    - name: persona
+    name: teleop-station
+    type: application
+    urls:
+    - https://github.com/teknoir/franka-station-helm/releases/download/teleop-station-0.1.2/teleop-station-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v2
     appVersion: jazzy-py3.12-dev-ubuntu24.04
     created: "2026-05-13T13:02:33.480246183Z"
@@ -93,4 +180,4 @@ entries:
     urls:
     - https://github.com/teknoir/franka-station-helm/releases/download/teleop-station-0.1.1/teleop-station-0.1.1.tgz
     version: 0.1.1
-generated: "2026-05-13T13:02:33.480253337Z"
+generated: "2026-05-13T14:02:21.57962493Z"
