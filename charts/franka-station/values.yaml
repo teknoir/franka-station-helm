@@ -3,9 +3,7 @@
 # Override here only for environment-specific differences.
 
 global:
-  # Node where ROS talker/listener pods run
-  nodeSelector:
-    kubernetes.io/hostname: teknoir-master
+  nodeSelector: {}
 
   # ROS manipulation image
   image: "persona-nas1.chipmunk-tuna.ts.net/persona/manipulation:jazzy-py3.12-dev-ubuntu24.04"
