@@ -2,7 +2,7 @@ apiVersion: v2
 name: teleop-station
 description: Helm chart for the Teleop station stack
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: "jazzy-py3.12-dev-ubuntu24.04"
 keywords:
   - ros2
