@@ -31,7 +31,7 @@ spec:
               #sudo apt-get install -y --no-install-recommends ros-${ROS_DISTRO}-rmw-zenoh-cpp
               #source /opt/persona/manipulation/setup.bash
               #ros2 launch persona_robot_station station_cameras.launch.py station_name:=castor
-              ./nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && cd /home/persona/pdinh/persona/teleop_rs && nix develop /home/persona/pdinh/persona/teleop_rs -c cargo run -p runner --release -- ./pipeline/runner/config/{{ .Values.stationName }}.yaml
+              ./nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && cd /home/persona/pdinh/persona/teleop_rs && nix develop /home/persona/pdinh/persona/teleop_rs -c cargo run -p runner --release -- /app/teleop_rs/pipeline/runner/config/robot.yaml
           securityContext:
             privileged: true
             capabilities:
@@ -55,6 +55,9 @@ spec:
               name: manipulation-src
             - mountPath: /dev/bus/usb
               name: dev-bus-usb
+            - mountPath: /app/teleop_rs/pipeline/runner/config/robot.yaml
+              name: robot-config
+              subPath: robot.yaml
       volumes:
         - hostPath:
             path: /home/persona/persona
@@ -64,3 +67,6 @@ spec:
             path: /dev/bus/usb
             type: Directory
           name: dev-bus-usb
+        - name: robot-config
+          configMap:
+            name: teleop-robot-config

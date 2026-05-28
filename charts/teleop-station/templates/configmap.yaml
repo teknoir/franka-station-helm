@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: teleop-robot-config
+  labels:
+    app: teleop-station
+data:
+  robot.yaml: |
+    ---
+    devices:
+      - type: quest3
+        addr: "0.0.0.0:9876"
+
+    robot: franka_bimanual
+
+    sink: zenoh
+    zenoh_endpoint: "tcp/{{ .Values.stationName }}-control:4202"
+
+    franka_workspace:
+      # yamllint disable-line rule:line-length
+      urdf_path: /app/third_party/robot_description/robots/persona_franka_station/urdf/persona_franka_station_fr3v2.urdf
+      arm_link_prefix: fr3v2
+      prefer_body_skeleton: false
+      ee_source: hand_tracking
+      clutch_source: pinch_gesture
+      input_smoothing_alpha: 0.4
+      max_position_velocity_m_s: 3.0
+      max_angular_velocity_deg_s: 720.0
+      hand_model: altbionic_surge
+      hand_name: altbionic_surge

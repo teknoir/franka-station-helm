@@ -2,5 +2,5 @@ apiVersion: v2
 name: franka-ros
 description: Helm chart for Franka station ROS 2 stack
 type: application
-version: 0.1.2
+version: 0.1.3
 appVersion: "jazzy-py3.12-dev-ubuntu24.04"

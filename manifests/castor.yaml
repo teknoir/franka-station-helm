@@ -24,7 +24,7 @@ spec:
         kubernetes.io/hostname: teknoir-master
 
     franka-ros:
-      nodeSelector:
+      nodeSelector:Teleop
         kubernetes.io/hostname: teknoir-master
 
     franka-zenoh-router:
