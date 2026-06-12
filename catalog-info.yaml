@@ -1,0 +1,175 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: Franka Station App
+  name: franka-station-app
+  namespace: teknoir
+  description: Franka Arm Robot Surrogate Lab Station
+  annotations:
+    'github.com/project-slug': teknoir/franka-station-helm
+    'backstage.io/techdocs-ref': dir:.
+spec:
+  type: app
+  owner: group:teknoir/public
+  system: system:teknoir/core
+  lifecycle: experimental
+  dependsOn:
+    - component:teknoir/franka-station-helm
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: Teleop Station App
+  name: teleop-station-app
+  namespace: teknoir
+  description: Teleop Station
+  annotations:
+    'github.com/project-slug': teknoir/franka-station-helm
+    'backstage.io/techdocs-ref': dir:.
+spec:
+  type: app
+  owner: group:teknoir/public
+  system: system:teknoir/core
+  lifecycle: experimental
+  dependsOn:
+    - component:teknoir/teleop-station-helm
+
+# HELMCHARTS
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: Franka Station Helm
+  name: franka-station-helm
+  namespace: teknoir
+  description: Franka Arm Robot Surrogate Lab Station HelmChart
+  annotations:
+    'github.com/project-slug': teknoir/franka-station-helm
+    'teknoir.org/helm-registry': teknoir.github.io/franka-station-helm
+    'teknoir.org/helmchart': franka-station
+spec:
+  type: helmchart
+  owner: group:teknoir/public
+  system: system:teknoir/core
+  lifecycle: experimental
+  dependsOn:
+    - component:teknoir/franka-cameras-helm
+    - component:teknoir/franka-pcf-helm
+    - component:teknoir/franka-ros-helm
+    - component:teknoir/franka-zenoh-router-helm
+  registry: teknoir.github.io/franka-station-helm
+  helmchart: franka-station
+  versions:
+    - 0.1.3
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: Teleop Station Helm
+  name: teleop-station-helm
+  namespace: teknoir
+  description: Teleoperations Station HelmChart
+  annotations:
+    'github.com/project-slug': teknoir/franka-station-helm
+    'teknoir.org/helm-registry': teknoir.github.io/franka-station-helm
+    'teknoir.org/helmchart': teleop-station
+spec:
+  type: helmchart
+  owner: group:teknoir/public
+  system: system:teknoir/core
+  lifecycle: experimental
+  registry: teknoir.github.io/franka-station-helm
+  helmchart: teleop-station
+  versions:
+    - 0.1.3
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: Franka Cameras Helm
+  name: franka-cameras-helm
+  namespace: teknoir
+  description: Franka Cameras HelmChart
+  annotations:
+    'github.com/project-slug': teknoir/franka-station-helm
+    'teknoir.org/helm-registry': teknoir.github.io/franka-station-helm
+    'teknoir.org/helmchart': franka-cameras
+spec:
+  type: helmchart
+  owner: group:teknoir/public
+  system: system:teknoir/core
+  lifecycle: experimental
+  registry: teknoir.github.io/franka-station-helm
+  helmchart: franka-cameras
+  versions:
+    - 0.1.3
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: Franka PCF Helm
+  name: franka-pcf-helm
+  namespace: teknoir
+  description: Franka PCF HelmChart
+  annotations:
+    'github.com/project-slug': teknoir/franka-station-helm
+    'teknoir.org/helm-registry': teknoir.github.io/franka-station-helm
+    'teknoir.org/helmchart': franka-pcf
+spec:
+  type: helmchart
+  owner: group:teknoir/public
+  system: system:teknoir/core
+  lifecycle: experimental
+  registry: teknoir.github.io/franka-station-helm
+  helmchart: franka-pcf
+  versions:
+    - 0.1.3
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: Franka ROS Helm
+  name: franka-ros-helm
+  namespace: teknoir
+  description: Franka ROS HelmChart
+  annotations:
+    'github.com/project-slug': teknoir/franka-station-helm
+    'teknoir.org/helm-registry': teknoir.github.io/franka-station-helm
+    'teknoir.org/helmchart': franka-ros
+spec:
+  type: helmchart
+  owner: group:teknoir/public
+  system: system:teknoir/core
+  lifecycle: experimental
+  registry: teknoir.github.io/franka-station-helm
+  helmchart: franka-ros
+  versions:
+    - 0.1.3
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: Franka Zenoh Router Helm
+  name: franka-zenoh-router-helm
+  namespace: teknoir
+  description: Franka Zenoh Router HelmChart
+  annotations:
+    'github.com/project-slug': teknoir/franka-station-helm
+    'teknoir.org/helm-registry': teknoir.github.io/franka-station-helm
+    'teknoir.org/helmchart': franka-zenoh-router
+spec:
+  type: helmchart
+  owner: group:teknoir/public
+  system: system:teknoir/core
+  lifecycle: experimental
+  registry: teknoir.github.io/franka-station-helm
+  helmchart: franka-zenoh-router
+  versions:
+    - 0.1.3
