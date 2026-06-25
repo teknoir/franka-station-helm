@@ -8,7 +8,7 @@ metadata:
   description: Franka Arm Robot Surrogate Lab Station
   annotations:
     'github.com/project-slug': teknoir/franka-station-helm
-    'backstage.io/techdocs-ref': dir:.
+    'backstage.io/techdocs-ref': dir:docs/franka-station-app
 spec:
   type: app
   owner: group:teknoir/public
@@ -27,7 +27,7 @@ metadata:
   description: Teleop Station
   annotations:
     'github.com/project-slug': teknoir/franka-station-helm
-    'backstage.io/techdocs-ref': dir:.
+    'backstage.io/techdocs-ref': dir:docs/teleop-station-app
 spec:
   type: app
   owner: group:teknoir/public
@@ -49,6 +49,7 @@ metadata:
     'github.com/project-slug': teknoir/franka-station-helm
     'teknoir.org/helm-registry': teknoir.github.io/franka-station-helm
     'teknoir.org/helmchart': franka-station
+    'backstage.io/techdocs-ref': dir:docs/franka-station-helm
 spec:
   type: helmchart
   owner: group:teknoir/public
@@ -76,6 +77,7 @@ metadata:
     'github.com/project-slug': teknoir/franka-station-helm
     'teknoir.org/helm-registry': teknoir.github.io/franka-station-helm
     'teknoir.org/helmchart': teleop-station
+    'backstage.io/techdocs-ref': dir:docs/teleop-station-helm
 spec:
   type: helmchart
   owner: group:teknoir/public
@@ -98,6 +100,7 @@ metadata:
     'github.com/project-slug': teknoir/franka-station-helm
     'teknoir.org/helm-registry': teknoir.github.io/franka-station-helm
     'teknoir.org/helmchart': franka-cameras
+    'backstage.io/techdocs-ref': dir:docs/franka-cameras-helm
 spec:
   type: helmchart
   owner: group:teknoir/public
@@ -120,6 +123,7 @@ metadata:
     'github.com/project-slug': teknoir/franka-station-helm
     'teknoir.org/helm-registry': teknoir.github.io/franka-station-helm
     'teknoir.org/helmchart': franka-pcf
+    'backstage.io/techdocs-ref': dir:docs/franka-pcf-helm
 spec:
   type: helmchart
   owner: group:teknoir/public
@@ -142,6 +146,7 @@ metadata:
     'github.com/project-slug': teknoir/franka-station-helm
     'teknoir.org/helm-registry': teknoir.github.io/franka-station-helm
     'teknoir.org/helmchart': franka-ros
+    'backstage.io/techdocs-ref': dir:docs/franka-ros-helm
 spec:
   type: helmchart
   owner: group:teknoir/public
@@ -164,6 +169,7 @@ metadata:
     'github.com/project-slug': teknoir/franka-station-helm
     'teknoir.org/helm-registry': teknoir.github.io/franka-station-helm
     'teknoir.org/helmchart': franka-zenoh-router
+    'backstage.io/techdocs-ref': dir:docs/franka-zenoh-router-helm
 spec:
   type: helmchart
   owner: group:teknoir/public
